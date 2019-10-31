@@ -1,13 +1,12 @@
 var numerals = {M:1000, CM:900, D:500, LD:450, CD:400, C:100, XC:90, L:50, VL:45, XL:40, X:10, IX:9, V:5, IV:4, I:1}
-
-
-var input = "5124"
-
 var output = [];
-var numberArray= input.split("");
-var firstNumberX = numberArray.slice(0,1);
-var firstNumber = parseInt(firstNumberX);
+var outputFinal = [];
+
 function numeralMaker(input) {
+
+  var numberArray= input.split("");
+  var firstNumberX = numberArray.slice(0,1);
+  var firstNumber = parseInt(firstNumberX);
 
   if (isNaN(input)) {
     alert("Please type a number")
@@ -21,23 +20,28 @@ function numeralMaker(input) {
         output.push(i);
         input -= numerals[i]
       }
+      var outputSecond = output.join("");
+      console.log(output);
+      console.log(outputSecond);
     }
-
+    outputFinal.push(outputSecond);
+    console.log(outputFinal);
   }
-
-
-  console.log(output);
-
 
 }
 
 $(document).ready(function() {
+  $("form#numerator").submit(function(event){
+    event.preventDefault();
+    var input = $("input#input").val();
+    numeralMaker(input);
+    $(".output").text(outputFinal);
+  });
 
-  numeralMaker(input);
-})
+});
 
 
-
+//this is our first attempt//
 
   // var I = 1;
   // var V = 5;
