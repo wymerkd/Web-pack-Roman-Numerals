@@ -1,33 +1,51 @@
-var numerals = {M:1000, CM:900, D:500, LD:450, CD:400, C:100, XC:90, L:50, VL:45, XL:40, X:10, IX:9, V:5, I:1}
+var numerals = {M:1000, CM:900, D:500, LD:450, CD:400, C:100, XC:90, L:50, VL:45, XL:40, X:10, IX:9, V:5, IV:4, I:1}
 
-var I = 1;
-var V = 5;
-var X = 10;
-var L = 50;
-var C = 100;
-var D = 500;
-var M = 1000;
 
-var input = "3124"
+var input = "5124"
 
 var output = [];
-
-console.log(output);
-
+var numberArray= input.split("");
+var firstNumberX = numberArray.slice(0,1);
+var firstNumber = parseInt(firstNumberX);
 function numeralMaker(input) {
-  for (var i in numerals) {
-    while (input >= numerals[i]) {
-      output.push(i);
-      input -= numerals[i]
+
+  if (isNaN(input)) {
+    alert("Please type a number")
+  } else if (input.length > 4) {
+    alert("Please enter number less than 4,000.")
+  } else if ((input.length === 4) && (firstNumber > 3)) {
+    alert("Please enter number less than 4,000.")
+  } else {
+    for (var i in numerals) {
+      while (input >= numerals[i]) {
+        output.push(i);
+        input -= numerals[i]
+      }
     }
+
   }
+
+
   console.log(output);
 
 
+}
+
+$(document).ready(function() {
+
+  numeralMaker(input);
+})
 
 
 
 
+  // var I = 1;
+  // var V = 5;
+  // var X = 10;
+  // var L = 50;
+  // var C = 100;
+  // var D = 500;
+  // var M = 1000;
 
   // var numberArray= input.split("");
   // console.log(numberArray);
@@ -74,10 +92,3 @@ function numeralMaker(input) {
   //
   // numberArray.forEach(function(number) {
   // })
-
-}
-
-$(document).ready(function() {
-
-  numeralMaker(input);
-})
