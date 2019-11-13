@@ -13,6 +13,7 @@ export function NumeralMaker(input, numberArray, firstNumberX, firstNumber) {
 NumeralMaker.prototype.translate = function(input) {
   if (isNaN(input)) {
     alert("Please type a number");
+    return "enter a number";
   } else if (this.input.length > 4) {
     alert("Please enter number less than 4,000.");
   } else if ((this.input.length === 4) && (this.firstNumber > 3)) {
